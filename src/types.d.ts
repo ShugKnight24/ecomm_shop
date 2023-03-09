@@ -3,3 +3,6 @@ interface TextResponse {
   text: string;
 };
 
+interface TimeStampResponse {
+  currentTime: string;
+};

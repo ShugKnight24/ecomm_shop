@@ -6,14 +6,19 @@ export const App: FC = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [textToDisplay, setTextToDisplay] = useState<TextResponse[]>([]);
+  const [timestamp, setTimestamp] = useState<string>();
 
   const helloWorldText: Promise<TextResponse[]> = doGet('/hello-world');
+  const currentTime: Promise<TimeStampResponse> = doGet('/timestamp');
 
   useEffect(() => {
     helloWorldText.then((response) => {
-      setIsLoading(false);
       setTextToDisplay(response);
     });
+    currentTime.then((response) => {
+      setTimestamp(response.currentTime);
+    });
+    setIsLoading(false);
   }, []);
 
   return (
@@ -22,9 +27,12 @@ export const App: FC = () => {
       {isLoading && (
         <p>Loading...</p>
       )}
-      {textToDisplay && textToDisplay.map((text: TextResponse) => {
-        return <p>{text.text}</p>
-      })}
+      {textToDisplay && textToDisplay.map((text: TextResponse) =>
+        <p>{text.text}</p>
+      )}
+      {timestamp && (
+        <p>Node Server's Timestamp: {timestamp}</p>
+      )}
     </div>
   )
 }

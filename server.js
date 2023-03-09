@@ -17,6 +17,12 @@ app.get('/hello-world', cors(), (req, res) => {
   res.json(dbText);
 });
 
+app.get('/timestamp/', cors(), (req, res) => {
+  const currentTime = new Date().toLocaleString();
+  
+  res.json({ currentTime });
+});
+
 const port = 3000;
 app.listen(port, () => {
   `Server running on port ${ port }`;
