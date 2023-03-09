@@ -6,7 +6,7 @@ app.use(json());
 app.use(cors());
 
 // Mocking DB
-app.get('/api/hello', cors(), (req, res) => {
+app.get('/hello-world', cors(), (req, res) => {
   const dbText = [
     {
       id: 1,
