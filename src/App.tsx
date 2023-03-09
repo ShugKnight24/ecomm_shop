@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
-import './App.css';
 import { doGet } from './Services/ApiService';
+import './App.css';
 
 export const App: FC = () => {
 
