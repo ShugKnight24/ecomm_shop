@@ -8,8 +8,12 @@
     "dev": "concurrently \"npm run server\" \"vite\"",
     "build": "tsc && vite build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix",
     "preview": "vite preview",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "tslint": "tslint -p tsconfig.json -c tslint.json",
+    "tslint:fix": "tslint -p tsconfig.json -c tslint.json --fix",
+    "test": "jest"
   },
   "dependencies": {
     "react": "^18.2.0",
