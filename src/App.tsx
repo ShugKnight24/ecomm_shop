@@ -28,7 +28,11 @@ export const App: FC = () => {
         <p>Loading...</p>
       )}
       {textToDisplay && textToDisplay.map((text: TextResponse) =>
-        <p>{text.text}</p>
+        <p
+          key={text.id}
+        >
+          {text.text}
+        </p>
       )}
       {timestamp && (
         <p>Node Server's Timestamp: {timestamp}</p>
